@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option go_package = "github.com/VerTox/hezzl_test;userpb";
+
+package user;
+
+service UserService {
+  rpc CreateUser (CreateUserRequest) returns (User) {}
+  rpc DeleteUser (DeleteUserRequest) returns (User) {}
+  rpc ListUsers (ListUserRequest) returns (ListUser) {}
+}
+
+message User {
+  int64 id = 1;
+  string name = 2;
+}
+
+message CreateUserRequest{
+  string name = 1;
+}
+
+message DeleteUserRequest{
+  int64 id = 1;
+}
+
+message ListUserRequest{
+
+}
+
+message ListUser {
+  repeated User users = 1;
+}
